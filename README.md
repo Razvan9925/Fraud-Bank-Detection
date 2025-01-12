@@ -51,6 +51,8 @@ Reduced costs associated with financial fraud for banking institutions.
 
 Enhanced user confidence in financial systems.
 
+
+
 This project demonstrates the power of Artificial Intelligence in combating fraud and offers an innovative solution that can be widely applied in the financial sector.
 
 💻 Contributions are welcome! If you have ideas for improving the system or want to contribute to its development, feel free to open a pull request or create an issue.
