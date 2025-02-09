@@ -22,7 +22,7 @@ jobs:
         run: jupyter nbconvert --to notebook --execute "CNN cu Algo.ipynb" --output "output.ipynb"
 
       - name: Upload output notebook
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: executed-notebook
           path: output.ipynb
