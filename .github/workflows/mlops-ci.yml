@@ -16,8 +16,8 @@ jobs:
           python-version: "3.9"
 
       - name: Install dependencies
-        run: pip install notebook nbconvert pandas numpy matplotlib torch tensorflow
-
+        run: pip install notebook nbconvert pandas numpy matplotlib torch tensorflow seaborn 
+ 
       - name: Execute Jupyter Notebook
         run: jupyter nbconvert --to notebook --execute "Credit_card_fraud_detection.ipynb" --output "rezultate.ipynb"
 
