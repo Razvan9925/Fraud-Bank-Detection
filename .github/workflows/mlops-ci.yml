@@ -1,14 +1,14 @@
-name: MLOps Workflow
+name: Run Jupyter Notebook
 
 on: [push, pull_request]  # Rulează workflow-ul la fiecare push sau PR
 
 jobs:
-  test-and-build:
+  execute-notebook:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3  # Ia codul sursă din repo
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Ia codul din repo
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -16,10 +16,13 @@ jobs:
           python-version: "3.9"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install notebook nbconvert pandas numpy matplotlib torch tensorflow
 
-      - name: Run tests
-        run: pytest  # Rulează testele definite în repo-ul tău
+      - name: Execute Jupyter Notebook
+        run: jupyter nbconvert --to notebook --execute "CNN cu Algo.ipynb" --output "output.ipynb"
 
-      - name: Build Docker image
-        run: docker build -t fraud-detection .
+      - name: Upload output notebook
+        uses: actions/upload-artifact@v3
+        with:
+          name: executed-notebook
+          path: output.ipynb
